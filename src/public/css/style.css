@@ -1,0 +1,107 @@
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    min-width: 550px; /* 2x LC width + RC width */
+}
+
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Set widths on the form inputs since otherwise they're 100% wide */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+/* Carousel */
+.carousel-caption p {
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+/* Make .svg files in the carousel display properly in older browsers */
+.carousel-inner .item img[src$=".svg"] {
+    width: 100%;
+}
+
+/* Hide/rearrange for smaller screens */
+@media screen and (max-width: 767px) {
+    /* Hide captions */
+    .carousel-caption {
+        display: none;
+    }
+}
+
+html #left {
+    left: 150px; /* RC width */
+}
+
+#container {
+    padding-left: 200px; /* LC width */
+    padding-right: 150px; /* RC width */
+}
+
+#container .columns {
+  float: left;
+  position: relative;
+}
+#container .columns {
+    float: left;
+    position: relative;
+}
+
+#center {
+    float:right;
+}
+
+#left {
+    display: inline-block;
+    width: 200px; /* LC width */
+    margin-left: -100%;
+    right: 200px; /* LC width */
+    float:left;
+}
+
+#right {
+    width: 150px; /* RC width */
+    margin-right: -150px; /* RC width */
+}
+
+#NoExisting {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.form-container {
+    margin-left: 25%;
+    margin-right: 25%;
+    width: 50%;
+    padding: 10px;
+    background-color: white;
+}
+
+.form-view {
+    width: 100%;
+}
+
+footer {
+    bottom: 0;
+    width: 100%;
+}
+
+.kv-avatar .file-preview-frame,.kv-avatar .file-preview-frame:hover {
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-shadow: none;
+    text-align: center;
+}
+.kv-avatar .file-input {
+    display: table-cell;
+    max-width: 220px;
+}

@@ -1,0 +1,83 @@
+<html>
+    <head>
+        <title>Nodejs User Account System</title>
+
+        <!--Stylesheets-->
+        <link href="/css/bootstrap.css" type="text/css" rel="stylesheet"/>
+        <link href="/css/style.css" type="text/css" rel="stylesheet"/>
+        <link href="/css/font-awesome.css" type="text/css" rel="stylesheet"/>
+        <link href="https://cdn.vid.me/vendor/jquery-ui-themes/smoothness/jquery.ui.theme.min.css" type="text/css" rel="stylesheet">
+        <link href="https://cdn.vid.me/vendor/bootstrap-select/bootstrap-select.min.css" type="text/css" rel="stylesheet">
+        <link href="https://cdn.vid.me/vendor/bootstrap-slider/bootstrap-slider.min.css" type="text/css" rel="stylesheet">
+        <link href="https://cdn.vid.me/vendor/bootstrap-slider/bootstrap-slider.min.css" type="text/css" rel="stylesheet">
+        <!--End of Stylesheets-->
+
+    </head>
+    <body>
+        <!--Navbar-->
+        <nav class="navbar navbar-default fixed-top navbar-toggleable-md bg-faded">
+            <!--Navbar Header Banner-->
+            <div class="navbar-header">
+                <a href="/">Acount System</a>
+            </div>
+
+            <!--Navbar Actionbar-->
+            <ul class="nav nav-pills float-right mr-auto">
+                    {{#if user}}
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Account
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="/users/dashboard">Dashboard</a>
+                                <a class="dropdown-item" href="/users/accountsettings">Account Settings</a>
+                                <a class="dropdown-item" href="/users/logout">Sign Out</a>
+                            </div>
+                        </li>
+                    {{else}}
+                        <li class="nav-item">
+                            <button style="margin-right: 5px;" type="button" class="btn btn-success" onclick="window.location.href='/users/register'">Register</button>
+                        </li>
+                        <li class="nav-item">
+                            <button type="button" class="btn btn-primary" onclick="window.location.href='/users/login'">Sign In</button>
+                        </li>
+                    {{/if}}
+            </ul>
+        </nav><!--/nav-->
+
+        <div class="container-fluid">
+            {{#if success_msg}}
+                <div style="margin-top: 20px;" class="alert alert-success alert-dismissible fade show" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <strong>Success:</strong> {{success_msg}}
+                </div>
+            {{/if}}
+
+            {{#if error_msg}}
+                <div style="margin-top: 20px;" class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <strong>Error:</strong> {{error_msg}}
+                </div>
+            {{/if}}
+
+            {{#if error}}
+                <div style="margin-top: 20px;" class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <strong>Error:</strong> {{error}}
+                </div>
+            {{/if}}
+
+            {{{body}}}
+
+            <footer class="navbar-fixed-bottom">
+                <p>&copy; Nodejs User Account System {{copyrightYear}}</p>
+            </footer>
+        </div> <!-- /container -->
+    </body>
+</html>
