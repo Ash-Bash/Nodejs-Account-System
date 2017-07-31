@@ -2,7 +2,7 @@
   "name": "nodejs-account-system",
   "version": "1.0.0",
   "description": "A Basic Accounting System using NodeJS",
-  "main": "./src/server.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "debug": "npm start"

@@ -35,6 +35,7 @@ var app = express();
 
 // View Engine
 app.set('views', path.join(__dirname, 'views'));
+console.log(path.join(__dirname, 'views'));
 hbs.registerHelper('equal', require('handlebars-helper-equal'));
 exphbs.create({
     helpers: {
@@ -105,6 +106,7 @@ app.use(function(req, res, next) {
     res.locals.error = req.flash('error');
     res.locals.user = req.user || null;
     res.locals.userrole = req.userrole || null;
+    next();
 });
 
 // Allocating Routes
@@ -113,7 +115,7 @@ app.use('/users', users_route);
 app.use('/admin', admin_route);
 
 // Set Port
-app.set('port', (process.env.PORT || 3001));
+app.set('port', (process.env.PORT || 3000));
 app.listen(app.get('port'), function() {
     console.log('Account System Site Server has started on port: ' + app.get('port'));
 });
