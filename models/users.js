@@ -36,13 +36,13 @@ var UserSchema = Schema({
 var User = module.exports = mongoose.model('User', UserSchema);
 
 // Creates a New User
-module.exports.createUser = function(newUser, callback) {
-    bcrypt.getSalt(10, function(err, salt) {
-        bcrypt.hash(newUser.password, salt, function(err, hash) {
-            newUser.password = hash;
-            newUser.save(callback);
-        });
-    });
+module.exports.createUser = function(newUser, callback){
+    bcrypt.genSalt(10, function(err, salt) {
+	    bcrypt.hash(newUser.password, salt, function(err, hash) {
+	        newUser.password = hash;
+	        newUser.save(callback);
+	    });
+	});
 }
 
 // Finds a matching User via Username

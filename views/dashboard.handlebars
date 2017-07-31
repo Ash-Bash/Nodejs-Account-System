@@ -1,0 +1,61 @@
+<div>
+  <link rel="stylesheet" href="/css/dashboard.css"/>
+  <div class="container-fluid">
+    <div class="row">
+        <nav class="col-sm-3 col-md-2 hidden-xs-down bg-faded sidebar" style="margin-bottom: 75px;">
+          <ul class="nav nav-pills flex-column">
+            <li class="nav-item">
+              <a class="nav-link {{#equal dashboardview "overview" }}active{{/equal}}" href="/users/dashboard/overview">Overview <span class="sr-only">(current)</span></a>
+            </li>
+          </ul>
+          {{#equal user.role "Admin"}}
+            <hr/>
+            <ul class="nav nav-pills flex-column">
+              <li class="nav-item">
+                <a class="nav-link" href="/users/dashboard/admin_overview">Admin Overview</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/users/dashboard/admin_contentcontrol">Content Control</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/users/dashboard/admin_usercontrol">User Control</a>
+              </li>
+            </ul>
+          {{/equal}}
+          {{#equal user.role "Admin-Superuser"}}
+            <hr/>
+            <ul class="nav nav-pills flex-column">
+              <li class="nav-item">
+                <a class="nav-link" href="/users/dashboard/admin_overview">Admin Overview</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/users/dashboard/admin_rightscontrol">Admin Rights Control</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/users/dashboard/admin_contentcontrol">Content Control</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/users/dashboard/admin_usercontrol">User Control</a>
+              </li>
+            </ul>
+          {{/equal}}
+          <hr/>
+          <ul class="nav nav-pills flex-column">
+            <li class="nav-item">
+              <a class="nav-link" href="/users/accountsettings">Account Settings</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/users/logout">Sign Out</a>
+            </li>
+          </ul>
+        </nav>
+
+        <main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
+            {{#equal dashboardview "overview" }}
+              {{> dashboard/dash_overview }}
+            {{/equal}}
+        </main>
+      </div>
+  </div>
+<script src="/js/handlebars_helpers.js"></script>
+</div>

@@ -41,7 +41,7 @@ router.get('/accountsettings', ensureAuthenticated, function(req, res) {
 router.get('/dashboard/:view', ensureAuthenticated, function(req, res) {
     
     res.locals.dashboardview = req.params.view;
-
+    res.render('dashboard', { partial:'dashboard/dash_' + res.locals.dashboardview + '.handlebars' });
 });
 
 //Post Functions
@@ -88,7 +88,7 @@ router.post('/register', function(req, res) {
 
                 var newUserRole = new UserRole({
                     userid: userObj._id,
-                    role: 'User'
+                    role: 'user'
                 });
 
                 UserRole.createUserRole(newUserRole, function(err, role) {
