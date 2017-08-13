@@ -32,11 +32,6 @@ router.get('/logout', function(req, res) {
     res.redirect('/');
 });
 
-// Account Settings
-router.get('/accountsettings', ensureAuthenticated, function(req, res) {
-    res.render('accountsettings');
-});
-
 // Dashboard
 router.get('/dashboard/:view', ensureAuthenticated, function(req, res) {
     

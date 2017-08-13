@@ -3,7 +3,7 @@
         <title>Nodejs User Account System</title>
 
         <!--Stylesheets-->
-        <link href="/css/bootstrap.css" type="text/css" rel="stylesheet"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous"/>
         <link href="/css/style.css" type="text/css" rel="stylesheet"/>
         <link href="/css/font-awesome.css" type="text/css" rel="stylesheet"/>
         <link href="https://cdn.vid.me/vendor/jquery-ui-themes/smoothness/jquery.ui.theme.min.css" type="text/css" rel="stylesheet">
@@ -12,35 +12,41 @@
         <link href="https://cdn.vid.me/vendor/bootstrap-slider/bootstrap-slider.min.css" type="text/css" rel="stylesheet">
         <!--End of Stylesheets-->
 
+        <!--Scripts-->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+        <!--End of Scripts-->
+
     </head>
     <body>
         <!--Navbar-->
-        <nav class="navbar navbar-default fixed-top navbar-toggleable-md bg-faded">
-            <!--Navbar Header Banner-->
-            <a class="navbar-brand" href="#">Account System</a>
+        <nav class="navbar navbar-light bg-faded fixed-top" role="navigation">
 
             <!--Navbar Actionbar-->
-            <ul class="nav nav-pills float-right mr-auto">
-                    {{#if user}}
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Account
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="/users/dashboard">Dashboard</a>
-                                <a class="dropdown-item" href="/users/accountsettings">Account Settings</a>
-                                <a class="dropdown-item" href="/users/logout">Sign Out</a>
-                            </div>
-                        </li>
-                    {{else}}
-                        <li class="nav-item">
-                            <button style="margin-right: 5px;" type="button" class="btn btn-success" onclick="window.location.href='/users/register'">Register</button>
-                        </li>
-                        <li class="nav-item">
-                            <button type="button" class="btn btn-primary" onclick="window.location.href='/users/login'">Sign In</button>
-                        </li>
-                    {{/if}}
-            </ul>
+            <div class="" id="navbarSupportedContent">
+                <!--Navbar Title-->
+                <a class="navbar-brand float-left" href="#">Account System</a>
+                <!--Account Actions-->
+                <ul class="nav navbar-nav float-right mr-auto" style="display: inline-block;">
+                        {{#if user}}
+                            <li class="nav-item" style="display: inline-block; margin-right: 10px;">
+                                <a class="nav-link" href="/users/dashboard/overview" role="tab" data-toggle="tab" aria-controls="dropdown1">Dashboard</a>
+                            </li>
+                            <li class="nav-item" style="display: inline-block; margin-right: 10px;">
+                                <a class="nav-link" href="/users/dashboard/accountsettings" role="tab" data-toggle="tab" aria-controls="dropdown2">Account Settings</a>
+                            </li>
+                            <li class="nav-item" style="display: inline-block; margin-right: 10px;">
+                                <a class="nav-link" href="/users/logout"  role="tab" data-toggle="tab" aria-controls="dropdown3">Sign Out</a>
+                            </li>
+                        {{else}}
+                            <li class="nav-item" style="display: inline-block;">
+                                <button style="margin-right: 5px;" type="button" class="btn btn-success" onclick="window.location.href='/users/register'">Register</button>
+                            </li>
+                            <li class="nav-item" style="display: inline-block;">
+                                <button type="button" class="btn btn-primary" onclick="window.location.href='/users/login'">Sign In</button>
+                            </li>
+                        {{/if}}
+                </ul>
+            </div>
         </nav><!--/nav-->
 
         <div class="container-fluid">
@@ -74,7 +80,7 @@
             {{{body}}}
 
             <footer class="navbar-fixed-bottom">
-                <p>&copy; Nodejs User Account System {{copyrightYear}}</p>
+                <!--<p>&copy; Nodejs User Account System {{copyrightYear}}</p>-->
             </footer>
         </div> <!-- /container -->
     </body>
