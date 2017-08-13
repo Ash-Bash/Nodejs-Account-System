@@ -1,6 +1,6 @@
 # Nodejs Account System
 
-This project demonstrates how a user account system may work using NodeJs
+This project demonstrate how a user account system may work using NodeJs, which this project was created by me (Ashley Chapman)
 
 ### Dependances
 
